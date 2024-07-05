@@ -1,0 +1,13 @@
+<div class="gallery">
+    <div *ngFor="let image of images" class="gallery-item">
+      <img [src]="image?.src" [alt]="image?.alt" (click)="openModal(image)">
+    </div>
+  </div>
+  
+  <div *ngIf="selectedImage" class="modal">
+    <button (click)="previousImage()" class="nav-button"><</button>
+    <button class="close"  (click)="closeModal()">&times;</button>
+    <img class="modal-content" [src]="selectedImage.src" [alt]="selectedImage.alt">
+    <button (click)="nextImage()" class="nav-button">></button>
+  </div>
+  
